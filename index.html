@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Your Library</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com"> 
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+	<header>
+		<h1>Bibliotheca</h1>
+		<button id="add-book" class="btn-primary"><svg width="24" height="24"><title>Add book icon</title><use href="#icon-add"></use></svg> Add a book</button>
+	</header>
+	<main></main>
+
+	<!-- modals -->
+	<dialog id="new-modal" aria-labelledby="new-modal-title">
+		<button class="close"><span class="sr-only">close modal </span><svg width="24" height="24"><title>close icon</title><use href="#icon-close"></use></svg></button>
+		<h2 id="new-modal-title">Add a Book</h2>
+		<form method="dialog">
+			<div class="input-box">
+				<label for="title">Title</label>
+				<input type="text" name="title" id="title" autofocus required>
+			</div>
+			<div class="input-box">
+				<label for="author">Author</label>
+				<input type="text" name="author" id="author" required>
+			</div>
+			<div class="input box">
+				<label for="year">Year</label>
+				<input type="text" name="year" id="year" required>
+			</div>
+			<fieldset>
+				<legend>Read?</legend>
+				<input type="radio" name="newBook-read" id="newBook-read-yes" value="true" required>
+				<label for="newBook-read-yes">yes</label>
+				<input type="radio" name="newBook-read" id="newBook-read-no" value="false" required>
+				<label for="newBook-read-no">no</label>
+			</fieldset>
+			<button type="submit" class="btn-primary">Add book</button>
+		</form>
+	</dialog>
+	<dialog id="remove-modal" aria-labelledby="remove-modal-title">
+		<button class="close"><span class="sr-only">close modal </span><svg width="24" height="24"><title>close icon</title><use href="#icon-close"></use></svg></button>
+		<h2 id="remove-modal-title">Remove <span class="title"></span> ?</h2>
+		<form method="dialog">
+			<button type="submit" class="btn-primary" autofocus>Yes</button>
+			<button type="cancel" class="btn-primary">No</button>
+		</form>
+	</dialog>
+
+	<!-- svg symbols -->
+	<svg style="display:none;" aria-hidden="true">
+		<symbol id="icon-read" viewBox="0 0 24 24">
+			<path fill="currentColor" d="M23.5,17L18.5,22L15,18.5L16.5,17L18.5,19L22,15.5L23.5,17M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9M12,4.5C17,4.5 21.27,7.61 23,12C22.75,12.65 22.44,13.26 22.08,13.85C21.5,13.5 20.86,13.25 20.18,13.12L20.82,12C19.17,8.64 15.76,6.5 12,6.5C8.24,6.5 4.83,8.64 3.18,12C4.83,15.36 8.24,17.5 12,17.5L13.21,17.43C13.07,17.93 13,18.46 13,19V19.46L12,19.5C7,19.5 2.73,16.39 1,12C2.73,7.61 7,4.5 12,4.5Z" />
+		</symbol>
+		<symbol id="icon-unread" viewBox="0 0 24 24">
+			<path fill="currentColor" d="M2,5.27L3.28,4L20,20.72L18.73,22L15.65,18.92C14.5,19.3 13.28,19.5 12,19.5C7,19.5 2.73,16.39 1,12C1.69,10.24 2.79,8.69 4.19,7.46L2,5.27M12,9A3,3 0 0,1 15,12C15,12.35 14.94,12.69 14.83,13L11,9.17C11.31,9.06 11.65,9 12,9M12,4.5C17,4.5 21.27,7.61 23,12C22.18,14.08 20.79,15.88 19,17.19L17.58,15.76C18.94,14.82 20.06,13.54 20.82,12C19.17,8.64 15.76,6.5 12,6.5C10.91,6.5 9.84,6.68 8.84,7L7.3,5.47C8.74,4.85 10.33,4.5 12,4.5M3.18,12C4.83,15.36 8.24,17.5 12,17.5C12.69,17.5 13.37,17.43 14,17.29L11.72,15C10.29,14.85 9.15,13.71 9,12.28L5.6,8.87C4.61,9.72 3.78,10.78 3.18,12Z" />
+		</symbol>
+		<symbol id="icon-delete" viewBox="0 0 24 24">
+			<path fill="currentColor" d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z" />
+		</symbol>
+		<symbol id="icon-add" viewBox="0 0 24 24">
+			<path fill="currentColor" d="M13.09 20C13.21 20.72 13.46 21.39 13.81 22H6C4.89 22 4 21.11 4 20V4C4 2.9 4.89 2 6 2H18C19.11 2 20 2.9 20 4V13.09C19.67 13.04 19.34 13 19 13C18.66 13 18.33 13.04 18 13.09V4H13V12L10.5 9.75L8 12V4H6V20H13.09M20 18V15H18V18H15V20H18V23H20V20H23V18H20Z" />
+		</symbol>
+		<symbol id="icon-close" viewBox="0 0 24 24">
+			<path fill="currentColor" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+		</symbol>
+	</svg>
+
+	<script src="scripts.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,302 @@
+body {
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Open Sans', sans-serif;
+	background-color: hsl(0, 0%, 10%);
+}
+body *,
+body *::before,
+body *::after {
+	box-sizing: inherit;
+}
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1.5em;
+	background-color: #fff;
+}
+h1 {
+	margin: 0;
+	font-size: 1.2em;
+	line-height: 1;
+	text-transform: uppercase;
+	font-weight: 300;
+	letter-spacing: .12em;
+}
+button {
+	border: none;
+	background-color: transparent;
+	font-family: inherit;
+	padding: 0;
+	margin: 0;
+	font-size: 1em;
+}
+.btn-primary {
+	background-color: hsl(210, 30%, 47%);
+	color: #fff;
+	display: flex;
+	align-items: center;
+	gap: .5em;
+	padding: .6em 1.8em;
+	border-radius: .5em;
+	text-transform: uppercase;
+	letter-spacing: .1em;
+	font-size: .8em;
+}
+.shelf {
+	display: flex;
+	align-items: flex-end;
+	padding: 3em 1.5em 0;
+	background-color: hsl(210, 40%, 80%);
+	background-image: linear-gradient(to bottom, hsla(0, 0%, 0%, 0) 50%, hsla(0, 0%, 0%, .3));
+	overflow-x: auto;
+	min-block-size: 50vh;
+}
+article {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: center;
+	gap: 2em;
+	padding: 2em 2em 1em;
+	background-image: linear-gradient(to right, hsla(0, 0%, 0%, .6) 0%, hsla(0, 0%, 0%, .2) 8%, hsla(0, 0%, 100%, .12) 50%, hsla(0, 0%, 0%, .2) 92%, hsla(0, 0%, 0%, .6) 100%);
+	color: #fff;
+	border-radius: .4em;
+	max-inline-size: 8em;
+	min-block-size: 22em;
+}
+article > div {
+	text-align: center;
+}
+article h2 {
+	font-size: 2.1em;
+	font-weight: normal;
+	line-height: 1;
+	margin: 0;
+	writing-mode: vertical-rl;
+	font-family: 'Playfair Display', serif;
+	max-inline-size: 12em;
+	transform: rotate(180deg) translateX(.1em);
+}
+article h3 {
+	font-size: .875em;
+	font-weight: normal;
+	line-height: 1.2;
+	margin: 0;
+	font-weight: normal;
+}
+article p {
+	font-size: .625em;
+	margin: .2em 0 0;
+	font-weight: 300;
+}
+article .remove {
+	margin: .625em 0 0;
+	padding: .625em 0 0;
+	border-block-start: .05em solid #fff;
+	align-self: center;
+}
+article .remove button {
+	display: flex;
+	align-items: center;
+	gap: .2em;
+	background-color: transparent;
+	border: none;
+	color: inherit;
+	padding: 0;
+	font-size: .625em;
+	line-height: 1;
+	margin: 0 auto;
+}
+article .remove button svg {
+	display: block;
+	inline-size: 1.8em;
+	block-size: auto;
+}
+/* read/unread */
+input {
+	font-family: inherit;
+	font-size: 1em;
+}
+article form {
+	text-align: center;
+}
+article fieldset {
+	margin: .625em 0 0;
+	padding: .625em 0 0;
+	border: 0;
+	border-block-start: .05em solid #fff;
+	min-inline-size: 3.5em;
+	display: flex;
+	gap: .125em .25em;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+article legend {
+	float: left;
+	font-size: .625em;
+	inline-size: 100%;
+	padding: 0;
+}
+article input[type="radio"] {
+	-webkit-appearance: none;
+	appearance: none;
+	background-color: #fff;
+	margin: 0;
+	display: none;
+}
+article input[type="radio"] + label svg {
+	display: block;
+	inline-size: 1.5em;
+	block-size: auto;
+}
+article input[type="radio"]:not(:checked) + label {
+	opacity: .4;
+}
+/* background colors */
+article:nth-of-type(10n + 1) {
+	background-color: hsl(0, 40%, 40%);
+}
+article:nth-of-type(10n + 7) {
+	background-color: hsl(36, 40%, 40%);
+}
+article:nth-of-type(10n + 3) {
+	background-color: hsl(72, 40%, 40%);
+}
+article:nth-of-type(10n + 8) {
+	background-color: hsl(108, 40%, 40%);
+}
+article:nth-of-type(10n + 5) {
+	background-color: hsl(144, 40%, 40%);
+}
+article:nth-of-type(10n + 10) {
+	background-color: hsl(180, 40%, 40%);
+}
+article:nth-of-type(10n + 2) {
+	background-color: hsl(216, 40%, 40%);
+}
+article:nth-of-type(10n + 4) {
+	background-color: hsl(252, 40%, 40%);
+}
+article:nth-of-type(10n + 9) {
+	background-color: hsl(288, 40%, 40%);
+}
+article:nth-of-type(10n + 6) {
+	background-color: hsl(324, 40%, 40%);
+}
+.sr-only {
+	position: absolute!important;
+	inline-size: 1px!important;
+	block-size: 1px!important;
+	padding: 0!important;
+	margin: -1px!important;
+	overflow: hidden!important;
+	clip: rect(0,0,0,0)!important;
+	white-space: nowrap!important;
+	border: 0!important;
+}
+dialog::backdrop {
+	background-color: hsla(0,0%,0%,.6);
+	backdrop-filter: blur(.25em);
+	transition: backdrop-filter .5s ease;
+}
+html:has(dialog[open]) {
+	overflow: hidden;
+}
+/* dialogs */
+dialog {
+	border: none;
+	padding: 1.5em;
+	border-radius: 1em;
+	box-shadow: 0 1em 2em hsla(0, 0%, 0%, .5);
+	inline-size: min(20em, 80%);
+	background-color: hsl(210, 40%, 90%);
+}
+button.close {
+	float: right;
+}
+button.close svg {
+	display: block;
+	inline-size: 1.5em;
+	block-size: auto;
+}
+#new-modal form {
+	display: grid;
+	gap: 1.5em;
+}
+dialog h2 {
+	margin: 0 0 1.25em;
+	font-weight: 600;
+	text-transform: uppercase;
+	font-size: 1.2em;
+	line-height: 1.2;
+}
+dialog h2 .title {
+	text-transform: none;
+	letter-spacing: normal;
+}
+dialog label {
+	font-size: .8em;
+	font-weight: 300;
+}
+dialog .input-box label {
+	display: block;
+	margin-block-end: .2em;
+}
+dialog input[type="text"] {
+	inline-size: 100%;
+	border: none;
+	padding: .4em .6em;
+}
+dialog :not(.input-box) > label {
+	margin-inline-end: 1em;
+}
+dialog fieldset {
+	inline-size: 100%;
+	border: none;
+	padding: 0;
+}
+dialog fieldset legend {
+	font-size: .8em;
+}
+dialog form button {
+	background-color: hsl(210, 30%, 47%);
+	color: #fff;
+	display: flex;
+	align-items: center;
+	gap: .5em;
+	padding: .6em 1.8em;
+	border-radius: .5em;
+	text-transform: uppercase;
+	letter-spacing: .1em;
+	font-size: .8em;
+	justify-self: start;
+}
+#remove-modal form {
+	display: flex;
+	gap: 1em;
+}
+/* empty shelf */
+.empty {
+	align-self: center;
+	margin: 0 auto;
+}
+.empty h2 {
+	margin: 0 0 .5em 0;
+	font-size: 1.5em;
+}
+@media (hover : hover) {
+	#add-book,
+	dialog form button {
+		transition: background-color .2s;
+	}
+	#add-book:hover,
+	dialog form button:hover {
+		cursor: pointer;
+		background-color: hsl(210, 30%, 40%);
+	}
+	button {
+		cursor: pointer;
+	}
+}
