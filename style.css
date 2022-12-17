@@ -94,7 +94,7 @@ article p {
 article .remove {
 	margin: .625em 0 0;
 	padding: .625em 0 0;
-	border-block-start: .05em solid #fff;
+	border-block-start: .05em solid currentColor;
 	align-self: center;
 }
 article .remove button {
@@ -126,7 +126,7 @@ article fieldset {
 	margin: .625em 0 0;
 	padding: .625em 0 0;
 	border: 0;
-	border-block-start: .05em solid #fff;
+	border-block-start: .05em solid #currentColor;
 	min-inline-size: 3.5em;
 	display: flex;
 	gap: .125em .25em;
@@ -155,35 +155,42 @@ article input[type="radio"]:not(:checked) + label {
 	opacity: .4;
 }
 /* background colors */
-article:nth-of-type(10n + 1) {
+article:nth-of-type(12n + 1) {
 	background-color: hsl(0, 40%, 40%);
 }
-article:nth-of-type(10n + 7) {
+article:nth-of-type(12n + 12) {
 	background-color: hsl(36, 40%, 40%);
 }
-article:nth-of-type(10n + 3) {
+article:nth-of-type(12n + 3) {
 	background-color: hsl(72, 40%, 40%);
 }
-article:nth-of-type(10n + 8) {
+article:nth-of-type(12n + 8) {
 	background-color: hsl(108, 40%, 40%);
 }
-article:nth-of-type(10n + 5) {
+article:nth-of-type(12n + 5) {
 	background-color: hsl(144, 40%, 40%);
 }
-article:nth-of-type(10n + 10) {
+article:nth-of-type(12n + 10) {
 	background-color: hsl(180, 40%, 40%);
 }
-article:nth-of-type(10n + 2) {
+article:nth-of-type(12n + 2) {
 	background-color: hsl(216, 40%, 40%);
 }
-article:nth-of-type(10n + 4) {
+article:nth-of-type(12n + 4) {
 	background-color: hsl(252, 40%, 40%);
 }
-article:nth-of-type(10n + 9) {
+article:nth-of-type(12n + 9) {
 	background-color: hsl(288, 40%, 40%);
 }
-article:nth-of-type(10n + 6) {
+article:nth-of-type(12n + 6) {
 	background-color: hsl(324, 40%, 40%);
+}
+article:nth-of-type(12n + 11) {
+	background-color: hsl(0, 0%, 10%);
+}
+article:nth-of-type(12n + 7) {
+	background-color: hsl(0, 0%, 100%);
+	color: #000;
 }
 .sr-only {
 	position: absolute!important;
