@@ -44,6 +44,22 @@ button {
 	letter-spacing: .1em;
 	font-size: .8em;
 }
+.category {
+	position: relative;
+}
+.category > h2 {
+	position: absolute;
+	margin: 0 0 1em 1.5em;
+	bottom: 0;
+	line-height: 1;
+	background-color: #fff;
+	font-size: 1em;
+	font-weight: normal;
+	text-transform: uppercase;
+	letter-spacing: .12em;
+	padding: 1em 2em;
+	border-radius: 0 0 .5em .5em;
+}
 .shelf {
 	display: flex;
 	align-items: flex-end;
@@ -51,40 +67,43 @@ button {
 	background-color: hsl(210, 40%, 80%);
 	background-image: linear-gradient(to bottom, hsla(0, 0%, 0%, 0) 50%, hsla(0, 0%, 0%, .3));
 	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	scroll-padding: 1.5em;
 	min-block-size: 50vh;
+	border-block-end: 4em solid hsl(0, 0%, 10%);
+}
+.shelf > h2 {
+	position: absolute;
 }
 article {
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
-	align-items: center;
+	display: grid;
 	gap: 2em;
-	padding: 2em 2em 1em;
+	padding-block: 2em 1em;
+	padding-inline: 2em;
 	background-image: linear-gradient(to right, hsla(0, 0%, 0%, .6) 0%, hsla(0, 0%, 0%, .2) 8%, hsla(0, 0%, 100%, .12) 50%, hsla(0, 0%, 0%, .2) 92%, hsla(0, 0%, 0%, .6) 100%);
-	color: #fff;
 	border-radius: .4em;
-	max-inline-size: 8em;
-	min-block-size: 22em;
+	scroll-snap-align: start;
 }
 article > div {
 	text-align: center;
 }
-article h2 {
+article h3 {
+	justify-self: center;
 	font-size: 2.1em;
 	font-weight: normal;
-	line-height: 1;
+	line-height: 1.1;
 	margin: 0;
 	writing-mode: vertical-rl;
 	font-family: 'Playfair Display', serif;
-	max-inline-size: 12em;
+	max-inline-size: 14em;
+	min-inline-size: 6em;
 	transform: rotate(180deg) translateX(.1em);
 }
-article h3 {
+article h4 {
 	font-size: .875em;
 	font-weight: normal;
 	line-height: 1.2;
 	margin: 0;
-	font-weight: normal;
 }
 article p {
 	font-size: .625em;
@@ -155,42 +174,84 @@ article input[type="radio"]:not(:checked) + label {
 	opacity: .4;
 }
 /* background colors */
-article:nth-of-type(12n + 1) {
-	background-color: hsl(0, 40%, 40%);
+article.color-1 {
+	background-color: hsl(0, 0%, 98%);
 }
-article:nth-of-type(12n + 12) {
-	background-color: hsl(36, 40%, 40%);
+article.color-1 h3 {
+	color: hsl(198, 51%, 49%);
 }
-article:nth-of-type(12n + 3) {
-	background-color: hsl(72, 40%, 40%);
+article.color-2 {
+	background-color: hsl(34, 72%, 79%);
 }
-article:nth-of-type(12n + 8) {
-	background-color: hsl(108, 40%, 40%);
+article.color-2 h3 {
+	color: hsl(84, 4%, 40%);
 }
-article:nth-of-type(12n + 5) {
-	background-color: hsl(144, 40%, 40%);
+article.color-3 {
+	background-color: hsl(44, 24%, 78%);
 }
-article:nth-of-type(12n + 10) {
-	background-color: hsl(180, 40%, 40%);
+article.color-3 h3 {
+	color: hsl(69, 9%, 30%);
 }
-article:nth-of-type(12n + 2) {
-	background-color: hsl(216, 40%, 40%);
+article.color-4 {
+	background-color: hsl(173, 19%, 26%);
+	color: #fff;
 }
-article:nth-of-type(12n + 4) {
-	background-color: hsl(252, 40%, 40%);
+article.color-4 h3 {
+	color: hsl(172, 55%, 92%);
 }
-article:nth-of-type(12n + 9) {
-	background-color: hsl(288, 40%, 40%);
+article.color-5 {
+	background-color: hsl(346, 83%, 66%);
 }
-article:nth-of-type(12n + 6) {
-	background-color: hsl(324, 40%, 40%);
+article.color-5 h3 {
+	color: hsl(342, 84%, 12%);
 }
-article:nth-of-type(12n + 11) {
-	background-color: hsl(0, 0%, 10%);
+article.color-6 {
+	background-color: hsl(209, 29%, 41%);
+	color: #fff;
 }
-article:nth-of-type(12n + 7) {
-	background-color: hsl(0, 0%, 100%);
-	color: #000;
+article.color-6 h3 {
+	color: hsl(195, 50%, 76%);
+}
+article.color-7 {
+	background-color: hsl(202, 21%, 26%);
+	color: #fff;
+}
+article.color-7 h3 {
+	color: hsl(27, 16%, 55%);
+}
+article.color-8 {
+	background-color: hsl(48, 77%, 81%);
+}
+article.color-8 h3 {
+	color: hsl(180, 5%, 22%);
+}
+article.color-9 {
+	background-color: hsl(353, 34%, 32%);
+	color: #fff;
+}
+article.color-9 h3 {
+	color: hsl(357, 45%, 75%);
+}
+article.color-10 {
+	background-color: hsl(344, 26%, 20%);
+	color: #fff;
+}
+article.color-10 h3 {
+	color: hsl(344, 42%, 65%);
+}
+article.color-11 {
+	background-color: hsl(0, 0%, 16%);
+	color: #fff;
+}
+article.color-11 h3 {
+	color: hsl(102, 44%, 73%);
+}
+article.color-12 {
+	background-color: hsl(125, 19%, 25%);
+	color: #fff;
+}
+article.color-12 h3 {
+	color: hsl(98, 17%, 63%);
 }
 .sr-only {
 	position: absolute!important;
@@ -230,7 +291,7 @@ button.close svg {
 }
 #new-modal form {
 	display: grid;
-	gap: 1.5em;
+	gap: 1em;
 }
 dialog h2 {
 	margin: 0 0 1.25em;
@@ -258,6 +319,14 @@ dialog input[type="text"] {
 }
 dialog :not(.input-box) > label {
 	margin-inline-end: 1em;
+}
+dialog select {
+	display: block;
+	background-color: #fff;
+	border: none;
+	padding: .4em .6em;
+	border-radius: .4em;
+	font-size: 1em;
 }
 dialog fieldset {
 	inline-size: 100%;
