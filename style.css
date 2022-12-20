@@ -383,4 +383,7 @@ dialog form button {
 	.btn-primary:hover {
 		background-color: hsl(210, 30%, 40%);
 	}
+	article input[type="radio"] + label:hover {
+		cursor: pointer;
+	}	
 }
