@@ -112,11 +112,12 @@ function loadShelf() {
 	const library = getLibraryData();
 	if(library && library.length > 0) {
 		// get categories
-		const bookCats = [...new Set(library.map(book => book.category))];
+		const bookCats = [... new Set(library.map(book => book.category))];
+		console.log(bookCats);
 		bookCats.forEach(cat => {
 			let bookHtml = `<section class="category"><h2>${cat}</h2><div class="shelf">`;
 			const libraryFiltered = library.filter(book => book.category === cat);
-			const librarySorted = libraryFiltered.sort((book1, book2) => book1.title > book2.title);
+			const librarySorted = libraryFiltered.sort((book1, book2) => (book1.title > book2.title) ? 1 : (book2.title > book1.title) ? -1 : 0);
 			for (let i = 0; i < librarySorted.length; i++) {
 				const book = librarySorted[i];
 				bookHtml += 
@@ -128,14 +129,16 @@ function loadShelf() {
 							<form>
 								<fieldset>
 									<legend>Read?</legend>
-									<input type="radio" name="book${book.id}-read" id="book${book.id}-read-yes" value="true" ${book.haveRead === true ? 'checked' : ''}>
-									<label for="book${book.id}-read-yes">
-										<svg width="24" height="24"><title>yes</title><use href="#icon-read"></use></svg>
-									</label>
-									<input type="radio" name="book${book.id}-read" id="book${book.id}-read-no" value="false" ${book.haveRead === false ? 'checked' : ''}>
-									<label for="book${book.id}-read-no">
-										<svg width="24" height="24"><title>no</title><use href="#icon-unread"></use></svg>
-									</label>
+									<div class="radio-box">
+										<input type="radio" name="book${book.id}-read" id="book${book.id}-read-yes" value="true" ${book.haveRead === true ? 'checked' : ''}>
+										<label for="book${book.id}-read-yes">
+											<svg width="24" height="24"><title>yes</title><use href="#icon-read"></use></svg>
+										</label>
+										<input type="radio" name="book${book.id}-read" id="book${book.id}-read-no" value="false" ${book.haveRead === false ? 'checked' : ''}>
+										<label for="book${book.id}-read-no">
+											<svg width="24" height="24"><title>no</title><use href="#icon-unread"></use></svg>
+										</label>
+									</div>
 								</fieldset>
 							</form>
 							<div class="remove">
@@ -579,6 +582,6 @@ function initData() {
 		}
 	];
 	localStorage.removeItem('library');
-	localStorage.setItem('library', JSON.stringify(library));
+	saveLibraryData(library)
 	loadShelf();
 }

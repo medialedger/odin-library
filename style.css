@@ -111,10 +111,11 @@ article p {
 	font-weight: 300;
 }
 article .remove {
-	margin: .625em 0 0;
+	margin: .625em auto 0;
 	padding: .625em 0 0;
 	border-block-start: .05em solid currentColor;
 	align-self: center;
+	max-inline-size: 5em;
 }
 article .remove button {
 	display: flex;
@@ -140,6 +141,8 @@ input {
 }
 article form {
 	text-align: center;
+	max-inline-size: 5em;
+	margin-inline: auto;
 }
 article fieldset {
 	margin: .625em 0 0;
@@ -147,16 +150,19 @@ article fieldset {
 	border: 0;
 	border-block-start: .05em solid currentColor;
 	min-inline-size: 3.5em;
-	display: flex;
-	gap: .125em .25em;
-	justify-content: center;
-	flex-wrap: wrap;
 }
 article legend {
 	float: left;
 	font-size: .625em;
 	inline-size: 100%;
 	padding: 0;
+	margin-block-end: .1em;
+}
+article .radio-box {
+	clear: left;
+	display: flex;
+	gap: .5em;
+	justify-content: center;
 }
 article input[type="radio"] {
 	-webkit-appearance: none;
@@ -217,7 +223,7 @@ article.color-7 {
 	color: #fff;
 }
 article.color-7 h3 {
-	color: hsl(27, 16%, 55%);
+	color: hsl(27, 20%, 63%);
 }
 article.color-8 {
 	background-color: hsl(48, 77%, 81%);
@@ -266,6 +272,7 @@ article.color-12 h3 {
 }
 dialog::backdrop {
 	background-color: hsla(0,0%,0%,.6);
+	-webkit-backdrop-filter: blur(.25em);
 	backdrop-filter: blur(.25em);
 	transition: backdrop-filter .5s ease;
 }
